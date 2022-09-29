@@ -23,7 +23,7 @@ class _AuthScreenState extends State<AuthScreen> {
   void _submitAuthForm(
     String email,
     String password,
-    String username,
+   // String? username,
     bool isLogin,
     BuildContext ctx,
   ) async {
@@ -52,7 +52,7 @@ UserCredential userCredential ;
             .collection('users')
             .doc(userCredential.user?.uid)
             .set({
-          'username': username,
+         // 'username': username,
           'email': email,
         
         });

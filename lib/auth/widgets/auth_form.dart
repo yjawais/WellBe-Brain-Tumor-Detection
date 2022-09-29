@@ -6,8 +6,7 @@ class AuthForm extends StatefulWidget {
   final void Function(
     String email,
     String password,
-    String username,
-  
+  //  String? username,
     bool isLogin,
     BuildContext ctx,
   ) submitFn;
@@ -15,11 +14,10 @@ class AuthForm extends StatefulWidget {
   bool isLoading;
 
   AuthForm(
-   
     this.submitFn,
-    this.isLoading,
-     {Key? key,}
-  ) : super(key: key);
+    this.isLoading, {
+    Key? key,
+  }) : super(key: key);
   @override
   _AuthFormState createState() => _AuthFormState();
 }
@@ -28,20 +26,19 @@ class _AuthFormState extends State<AuthForm> {
   final _formKey = GlobalKey<FormState>();
   var _isLogin = true;
   var _userEmail = '';
-  var _userName = '';
+//  String? _userName = '';
   var _userPassword = '';
 
   void _trySubmit() {
     final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
 
-
     if (isValid) {
-      _formKey.currentState!.save();
+      _formKey.currentState?.save();
       widget.submitFn(
         _userEmail.trim(),
-        _userName.trim(),
         _userPassword.trim(),
+   //     _userName?.trim(),
         _isLogin,
         context,
       );
@@ -55,13 +52,12 @@ class _AuthFormState extends State<AuthForm> {
         margin: const EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: Padding(
-            padding:const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Form(
               key: _formKey,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                
                   TextFormField(
                     key: const ValueKey('email'),
                     autocorrect: false,
@@ -73,38 +69,38 @@ class _AuthFormState extends State<AuthForm> {
                       return null;
                     },
                     keyboardType: TextInputType.emailAddress,
-                    decoration:const InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Email Address',
                     ),
                     onSaved: (value) {
                       _userEmail = value!;
                     },
                   ),
-                  if (!_isLogin)
-                    TextFormField(
-                      key:const ValueKey('username'),
-                      validator: (value) {
-                        if (value!.isEmpty || value.length < 4) {
-                          return 'Enter more than 4 character';
-                        }
-                        return null;
-                      },
-                      decoration: const InputDecoration(
-                        labelText: 'Username',
-                      ),
-                      onSaved: (value) {
-                        _userName = value!;
-                      },
-                    ),
+                  // if (!_isLogin)
+                  //   TextFormField(
+                  //     key: const ValueKey('username'),
+                  //     validator: (value) {
+                  //       if (value!.isEmpty || value.length < 4) {
+                  //         return 'Enter more than 4 character';
+                  //       }
+                  //       return null;
+                  //     },
+                  //     decoration: const InputDecoration(
+                  //       labelText: 'Username',
+                  //     ),
+                  //     onSaved: (value) {
+                  //       _userName = value!;
+                  //     },
+                  //   ),
                   TextFormField(
-                    key:const ValueKey('password'),
+                    key: const ValueKey('password'),
                     validator: (value) {
                       if (value!.isEmpty || value.length < 7) {
                         return 'Enter password of atleast 7 character';
                       }
                       return null;
                     },
-                    decoration:const InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Password',
                     ),
                     onSaved: (value) {
@@ -112,7 +108,7 @@ class _AuthFormState extends State<AuthForm> {
                     },
                     obscureText: true,
                   ),
-                 const SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   if (widget.isLoading) const CircularProgressIndicator(),
                   if (!widget.isLoading)
                     ElevatedButton(
