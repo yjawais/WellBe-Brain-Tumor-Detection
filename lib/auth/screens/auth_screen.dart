@@ -8,6 +8,7 @@ import 'package:major_proj_sbj/auth/widgets/auth_form.dart';
 
 
 class AuthScreen extends StatefulWidget {
+  static const String routeName='/auth';
   const AuthScreen({Key? key}) : super(key: key);
 
   @override

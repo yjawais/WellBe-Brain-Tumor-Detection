@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/auth/screens/auth_screen.dart';
 
 import 'package:major_proj_sbj/features/home/screens/home_screen.dart';
+import 'package:major_proj_sbj/routes/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,11 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'WellBe',
       theme: ThemeData(
         
         primarySwatch: Colors.blue,
       ),
+      onGenerateRoute: (settings) => generateRoute(settings),
       home:  StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (ctx, userSnapshot) {
