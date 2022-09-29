@@ -1,5 +1,7 @@
 //import 'package:amazon_clone/constants/global_variables.dart';
 
+// ignore_for_file: library_private_types_in_public_api
+
 //import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/features/home/screens/home_screen.dart';
@@ -26,8 +28,8 @@ void updatePage(int page){
 
 List<Widget> pages=[
 const HomeScreen(),
-Center(child: const Text("Account")),
-Center(child: const Text("history")),
+const Center(child: Text("Account")),
+const Center(child: Text("history")),
 
 ];
 
