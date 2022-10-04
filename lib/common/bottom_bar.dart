@@ -4,6 +4,7 @@
 
 //import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:major_proj_sbj/features/account/screens/account_screen.dart';
 import 'package:major_proj_sbj/features/home/screens/home_screen.dart';
 //import 'package:provider/provider.dart';
 
@@ -20,19 +21,17 @@ class _BottomBarState extends State<BottomBar> {
   double bottomBarWidth = 42;
   double bottomBarBorderWidth = 5;
 
-void updatePage(int page){
-  setState(() {
-    _page=page;
-  });
-}
+  void updatePage(int page) {
+    setState(() {
+      _page = page;
+    });
+  }
 
-List<Widget> pages=[
-const HomeScreen(),
-const Center(child: Text("Account")),
-const Center(child: Text("history")),
-
-];
-
+  List<Widget> pages = [
+    const HomeScreen(),
+    const AccountScreen(),
+    const Center(child: Text("history")),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +40,10 @@ const Center(child: Text("history")),
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,
-        selectedItemColor: Colors.blue,         //GlobalVariables.selectedNavBarColor,
-        unselectedItemColor: Colors.black,        //GlobalVariables.unselectedNavBarColor,
-        backgroundColor: Colors.white,        //GlobalVariables.backgroundColor,
+        selectedItemColor: Colors.blue, //GlobalVariables.selectedNavBarColor,
+        unselectedItemColor:
+            Colors.black, //GlobalVariables.unselectedNavBarColor,
+        backgroundColor: Colors.white, //GlobalVariables.backgroundColor,
         iconSize: 28,
         onTap: updatePage,
         items: [
@@ -54,8 +54,8 @@ const Center(child: Text("history")),
                   border: Border(
                     top: BorderSide(
                       color: _page == 0
-                          ? Colors.blue//GlobalVariables.selectedNavBarColor
-                          : Colors.white,// GlobalVariables.backgroundColor,
+                          ? Colors.blue //GlobalVariables.selectedNavBarColor
+                          : Colors.white, // GlobalVariables.backgroundColor,
                       width: bottomBarBorderWidth,
                     ),
                   ),
@@ -72,8 +72,8 @@ const Center(child: Text("history")),
                   border: Border(
                     top: BorderSide(
                       color: _page == 1
-                       ? Colors.blue//GlobalVariables.selectedNavBarColor
-                          : Colors.white,// GlobalVariables.backgroundColor,
+                          ? Colors.blue //GlobalVariables.selectedNavBarColor
+                          : Colors.white, // GlobalVariables.backgroundColor,
                       width: bottomBarBorderWidth,
                     ),
                   ),
@@ -83,21 +83,21 @@ const Center(child: Text("history")),
                 ),
               ),
               label: ''),
-         BottomNavigationBarItem(
+          BottomNavigationBarItem(
               icon: Container(
                 width: bottomBarWidth,
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(
                       color: _page == 2
-                                            ? Colors.blue//GlobalVariables.selectedNavBarColor
-                          : Colors.white,// GlobalVariables.backgroundColor,
+                          ? Colors.blue //GlobalVariables.selectedNavBarColor
+                          : Colors.white, // GlobalVariables.backgroundColor,
                       width: bottomBarBorderWidth,
                     ),
                   ),
                 ),
                 child: const Icon(
-                   Icons.analytics_outlined,
+                  Icons.analytics_outlined,
                 ),
               ),
               label: ''),
