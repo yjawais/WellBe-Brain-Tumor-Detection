@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/auth/screens/auth_screen.dart';
+import 'package:major_proj_sbj/auth/screens/profile_input_screen.dart';
 import 'package:major_proj_sbj/common/bottom_bar.dart';
 import 'package:major_proj_sbj/features/home/screens/home_screen.dart';
 
@@ -17,6 +18,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     case BottomBar.routeName:
       return MaterialPageRoute(
         builder: (_) => const BottomBar(),
+      );
+    case ProfileInputScreen.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const ProfileInputScreen(),
       );
     // case AddProductScreen.routeName:
     //   return MaterialPageRoute(

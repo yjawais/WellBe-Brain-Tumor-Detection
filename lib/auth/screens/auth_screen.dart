@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:major_proj_sbj/auth/screens/profile_input_screen.dart';
 import 'package:major_proj_sbj/auth/widgets/auth_form.dart';
 
-
 class AuthScreen extends StatefulWidget {
-  static const String routeName='/auth';
+  static const String routeName = '/auth';
   const AuthScreen({Key? key}) : super(key: key);
 
   @override
@@ -23,38 +23,33 @@ class _AuthScreenState extends State<AuthScreen> {
   void _submitAuthForm(
     String email,
     String password,
-   // String? username,
     bool isLogin,
     BuildContext ctx,
   ) async {
-   
-UserCredential userCredential ;
+    UserCredential userCredential;
     try {
       setState(() {
         _isLoading = true;
       });
       if (isLogin) {
-       userCredential  = await _auth.signInWithEmailAndPassword(
+        userCredential = await _auth.signInWithEmailAndPassword(
           email: email,
           password: password,
         );
       } else {
-       userCredential = await _auth.createUserWithEmailAndPassword(
-          email: email,
-          password: password,
-        );
-
-      
-
-
+        userCredential = await _auth
+            .createUserWithEmailAndPassword(
+              email: email,
+              password: password,
+            )
+            .whenComplete(() =>
+                Navigator.of(ctx).pushNamed(ProfileInputScreen.routeName));
 
         await FirebaseFirestore.instance
             .collection('users')
             .doc(userCredential.user?.uid)
-            .set({
-         // 'username': username,
+            .update({
           'email': email,
-        
         });
       }
     } on PlatformException catch (error) {
