@@ -6,11 +6,15 @@ class UserModel {
   String? email;
   String? username;
   String? phone;
+  String? userType;
+  bool? isProfileComplete;
   UserModel({
     this.uid,
     this.email,
     this.username,
     this.phone,
+    this.userType,
+    this.isProfileComplete,
   });
 
   Map<String, dynamic> toMap() {
@@ -19,6 +23,8 @@ class UserModel {
       'email': email,
       'username': username,
       'phone': phone,
+      'userType': userType,
+      'isProfileComplete': isProfileComplete,
     };
   }
 
@@ -26,12 +32,15 @@ class UserModel {
     return UserModel(
       uid: map!['uid'] ?? '',
       email: map['email'] ?? '',
-     username: map['username'] ?? '',
-     phone: map['phone'] ?? '',
+      username: map['username'] ?? '',
+      phone: map['phone'] ?? '',
+      userType: map['userType'] ?? '',
+      isProfileComplete: map['isProfileComplete'] ?? '',
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory UserModel.fromJson(String source) =>
+      UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
