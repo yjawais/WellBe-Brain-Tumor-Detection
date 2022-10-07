@@ -81,7 +81,6 @@ class _AccountScreenState extends State<AccountScreen> {
                             name: loggedInUser.username!,
                             radius: 35,
                             fontsize: 30,
-                           
                           ),
                           SizedBox(width: 16),
                           Column(
@@ -116,24 +115,34 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                     SizedBox(height: 10),
                     OptionCard(
-                        buttonHeading: "Account Settings",
-                        buttonSubHeading: "Update user data",
-                        icon: Icons.account_circle_rounded),
+                      buttonHeading: "Account Settings",
+                      buttonSubHeading: "Update user data",
+                      icon: Icons.account_circle_rounded,
+                      function: () {},
+                    ),
                     SizedBox(height: 10),
                     OptionCard(
-                        buttonHeading: "System Settings",
-                        buttonSubHeading: "Accessibility settings",
-                        icon: Icons.settings),
+                      buttonHeading: "System Settings",
+                      buttonSubHeading: "Accessibility settings",
+                      icon: Icons.settings,
+                      function: () {},
+                    ),
                     SizedBox(height: 10),
                     OptionCard(
-                        buttonHeading: "Contact",
-                        buttonSubHeading: "contact settings",
-                        icon: Icons.mail),
+                      buttonHeading: "Contact",
+                      buttonSubHeading: "contact settings",
+                      icon: Icons.mail,
+                      function: () {},
+                    ),
                     SizedBox(height: 10),
                     OptionCard(
-                        buttonHeading: "Logout",
-                        buttonSubHeading: " ",
-                        icon: Icons.logout_rounded),
+                      buttonHeading: "Logout",
+                      buttonSubHeading: " ",
+                      icon: Icons.logout_rounded,
+                      function: () {
+                        FirebaseAuth.instance.signOut();
+                      },
+                    ),
                   ],
                 );
               } else if (snapshot.hasError) {
