@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:major_proj_sbj/auth/screens/forgot_password_screen.dart';
 import 'package:major_proj_sbj/auth/screens/profile_input_screen.dart';
 import 'package:major_proj_sbj/auth/widgets/auth_form.dart';
 
@@ -95,10 +96,10 @@ class _AuthScreenState extends State<AuthScreen> {
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                 child: GestureDetector(
                   onTap: () => {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => ForgotPasswordScreen()))
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ForgotPasswordScreen()))
                   },
                   child: Text(
                     "Forgot Your Password?",
