@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:major_proj_sbj/constants/global_variables.dart';
 
 class GradientButton extends StatelessWidget {
   final VoidCallback function;
@@ -20,20 +21,21 @@ class GradientButton extends StatelessWidget {
         onPressed: function,
         style: ElevatedButton.styleFrom(
           shape:const StadiumBorder(),
+          primary: GlobalVariables.primaryColor,
         //  RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
           padding: const EdgeInsets.all(0.0),
         ),
-        child: Ink(
-          decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [
-                  Color(0xff54C0BC),
-                  Color(0xff1fc585),
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
-              borderRadius: BorderRadius.circular(30.0)),
+        // child: Ink(
+        //   decoration: BoxDecoration(
+        //       gradient: const LinearGradient(
+        //         colors: [
+        //           Color(0xff54C0BC),
+        //           Color(0xff1fc585),
+        //         ],
+        //         begin: Alignment.centerLeft,
+        //         end: Alignment.centerRight,
+        //       ),
+        //       borderRadius: BorderRadius.circular(30.0),),
           child: Container(
             constraints: BoxConstraints(maxWidth: buttonWidth, minHeight: 50.0),
             alignment: Alignment.center,
@@ -47,7 +49,7 @@ class GradientButton extends StatelessWidget {
             ),
           ),
         ),
-      ),
+     // ),
     );
   }
 }

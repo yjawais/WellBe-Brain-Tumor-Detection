@@ -111,7 +111,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   ),
                 ),
               ),
-                 const SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -126,48 +126,50 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                Container(
-                  height: 50,
-                  width: 300,
-                  margin: const EdgeInsets.all(2),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+              
+                  Container(
+                    height: 50,
+                    width: 250,
+                    margin: const EdgeInsets.all(2),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
+
+                      onPressed: () {}, //signInWithGoogle,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                              height: 36.0,
+                              width: 36.0,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/Google.png',
+                                  ),
+                                ),
+                              )),
+                          Container(
+                              padding:
+                                  const EdgeInsets.only(left: 2.0, right: 2.0),
+                              child: const Text(
+                                "Sign in With Google",
+                                style: TextStyle(
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              )),
+                        ],
                       ),
                     ),
-
-                    onPressed: () {}, //signInWithGoogle,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                            height: 36.0,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'assets/images/googleIcon.png',
-                                ),
-                              ),
-                            )),
-                        Container(
-                            padding:
-                                const EdgeInsets.only(left: 2.0, right: 2.0),
-                            child: const Text(
-                              "Sign in With Google",
-                              style: TextStyle(
-                                color: Colors.black54,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            )),
-                      ],
-                    ),
-                  ),
-                ),
-              ]),
+                  
+              ),
             ],
           ),
         ),
