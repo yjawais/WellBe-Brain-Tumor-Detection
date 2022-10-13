@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
       title: 'WellBe',
       theme: ThemeData(
         useMaterial3: true,
-        primarySwatch: Colors.blue,
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: StreamBuilder(

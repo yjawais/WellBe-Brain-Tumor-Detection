@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 //String uri='https://awais-amazon-clone.herokuapp.com';
 
-
 class GlobalVariables {
   // COLORS
   static const appBarGradient = LinearGradient(
@@ -12,15 +11,14 @@ class GlobalVariables {
     ],
     stops: [0.5, 1.0],
   );
-
+  static const primaryColor = Color(0xFF199A8E);
   static const secondaryColor = Color.fromRGBO(255, 153, 0, 1);
   static const backgroundColor = Colors.white;
   static const Color greyBackgroundColor = Color(0xffebecee);
   static var selectedNavBarColor = Colors.cyan[800]!;
   static const unselectedNavBarColor = Colors.black87;
 
-
-   static const List<String> carouselImages = [
+  static const List<String> carouselImages = [
     'https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/WLA/TS/D37847648_Accessories_savingdays_Jan22_Cat_PC_1500.jpg',
     'https://images-eu.ssl-images-amazon.com/images/G/31/img2021/Vday/bwl/English.jpg',
     'https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/AdvantagePrime/BAU/14thJan/D37196025_IN_WL_AdvantageJustforPrime_Jan_Mob_ingress-banner_1242x450.jpg',
