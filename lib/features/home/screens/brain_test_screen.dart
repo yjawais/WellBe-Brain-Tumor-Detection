@@ -9,7 +9,7 @@ class BrainTestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.blue,),
-      body: const MriImagePicker(),
+      body: MriImagePicker(),
     );
   }
 }

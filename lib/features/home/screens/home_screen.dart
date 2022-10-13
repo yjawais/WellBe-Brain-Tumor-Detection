@@ -8,9 +8,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+    return SafeArea(
+      child: Scaffold(
+         appBar: AppBar(
+        //   backgroundColor: Colors.blueGrey,
         // actions: [
         //   Container(
         //     padding: const EdgeInsets.all(10),
@@ -42,10 +43,19 @@ class HomeScreen extends StatelessWidget {
         //     ),
         //   ),
         // ],
+        ),
+        body: Container(
+          padding:const EdgeInsets.all(16),
+          child: OptionCard(
+            buttonHeading: "Run Test",
+            buttonSubHeading: "check for brain tumor",
+            icon: Icons.bar_chart_rounded,
+            function: () {
+              Navigator.of(context).pushNamed(BrainTestScreen.routeName);
+            },
+          ),
+        ),
       ),
-      body: OptionCard(buttonHeading: "Run Test",buttonSubHeading: "check for brain tumor",icon: Icons.bar_chart_rounded,function: () {
-        Navigator.of(context).pushNamed(BrainTestScreen.routeName);
-      },),
     );
   }
 }

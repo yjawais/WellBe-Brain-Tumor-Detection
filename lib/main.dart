@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/auth/screens/auth_screen.dart';
 import 'package:major_proj_sbj/common/bottom_bar.dart';
+import 'package:major_proj_sbj/common/splash_screen.dart';
 
 //import 'package:major_proj_sbj/features/home/screens/home_screen.dart';
 import 'package:major_proj_sbj/routes/router.dart';
@@ -34,9 +35,7 @@ class MyApp extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (ctx, userSnapshot) {
           if (userSnapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const SplashScreen();
           }
           if (userSnapshot.hasData) {
             return const BottomBar();

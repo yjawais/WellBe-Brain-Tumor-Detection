@@ -13,21 +13,26 @@ class MriImagePicker extends StatefulWidget {
 }
 
 class _MriImagePickerState extends State<MriImagePicker> {
- XFile? _pickedImage;
+ late File _pickedImage;
   void _pickImage() async {
     
-    final XFile? pickedImageFile = await ImagePicker().pickImage(
+    final pickedImageFile = (await ImagePicker().pickImage(
       source: ImageSource.gallery,
       imageQuality: 50,
       maxWidth: 150,
-    );
+    )) ;
     setState(() {
-      _pickedImage = pickedImageFile ;
+      _pickedImage = File(pickedImageFile!.path) ;
     });
   //  widget.imagePickedFn(pickedImageFile);
   }
 
-
+@override
+  void initState() {
+    // TODO: implement initState
+    _pickedImage=File('assets/images/Vector.png');
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +47,25 @@ class _MriImagePickerState extends State<MriImagePicker> {
                 const SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
+                
+           
+                     Container(
+                        padding: const EdgeInsets.all(8),
+                        height: MediaQuery.of(context).size.height * 0.35,
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        decoration: BoxDecoration(
+                          border:Border.all(width:2,color:Colors.black12,),
+                          borderRadius: BorderRadius.circular(5),
+                          image:  DecorationImage(
+                            fit: BoxFit.fitHeight,
+                            image: _pickedImage != null ? FileImage(_pickedImage) : const AssetImage('assets/images/Vector.png') as ImageProvider,
+                          ),
+                        ), //change to network image later
+                      ),
+                       const SizedBox(
+                  height: 50,
+                ),
+                      ElevatedButton(
                   onPressed:_pickImage,
                   child: const Text(
                     'Select picture',
@@ -57,20 +80,6 @@ class _MriImagePickerState extends State<MriImagePicker> {
                 const SizedBox(
                   height: 50,
                 ),
-           
-                     Container(
-                        padding: const EdgeInsets.all(8),
-                        height: MediaQuery.of(context).size.height * 0.35,
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        decoration: BoxDecoration(
-                          border:Border.all(width:2,color:Colors.black12,),
-                          borderRadius: BorderRadius.circular(5),
-                          image:  DecorationImage(
-                            fit: BoxFit.fitHeight,
-                            image: _pickedImage != null ? FileImage(_pickedImage as File) : const AssetImage('assets/images/Vector.png') as ImageProvider,
-                          ),
-                        ), //change to network image later
-                      ),
               ],
             ),
           ),
