@@ -38,8 +38,8 @@ class _ProfileInputScreenState extends State<ProfileInputScreen> {
         'userType': userType,
         'isProfileComplete': isProfileComplete,
       }).then((_) => Navigator.of(ctx).pop()
-      // pushNamedAndRemoveUntil(
-      //     '/actual-home', (Route<dynamic> route) => false)
+          // pushNamedAndRemoveUntil(
+          //     '/actual-home', (Route<dynamic> route) => false)
           );
     } on PlatformException catch (error) {
       var message = 'An error occured.';
@@ -62,9 +62,29 @@ class _ProfileInputScreenState extends State<ProfileInputScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: ProfileForm(_submitProfileForm, _isLoading),
+    return SafeArea(
+      child: Scaffold(
+        //backgroundColor: Theme.of(context).backgroundColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+             const SizedBox(height: 100,),
+              const Text(
+                "Complete Profile",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  
+                  color: Colors.black45,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+               const SizedBox(height: 50,),
+              ProfileForm(_submitProfileForm, _isLoading),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
