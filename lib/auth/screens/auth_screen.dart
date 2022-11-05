@@ -175,7 +175,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               padding:
                                   const EdgeInsets.only(left: 2.0, right: 2.0),
                               child: const Text(
-                                "Sign in With Google",
+                                "Google",
                                 style: TextStyle(
                                   color: Colors.black54,
                                   fontWeight: FontWeight.bold,

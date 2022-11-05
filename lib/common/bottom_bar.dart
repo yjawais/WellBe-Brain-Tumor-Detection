@@ -4,6 +4,7 @@
 
 //import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:major_proj_sbj/constants/global_variables.dart';
 import 'package:major_proj_sbj/features/account/screens/account_screen.dart';
 import 'package:major_proj_sbj/features/home/screens/home_screen.dart';
 //import 'package:provider/provider.dart';
@@ -40,10 +41,10 @@ class _BottomBarState extends State<BottomBar> {
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,
-        selectedItemColor: Colors.blue, //GlobalVariables.selectedNavBarColor,
+        selectedItemColor: GlobalVariables.selectedNavBarColor,
         unselectedItemColor:
-            Colors.black, //GlobalVariables.unselectedNavBarColor,
-        backgroundColor: Colors.white, //GlobalVariables.backgroundColor,
+           GlobalVariables.unselectedNavBarColor,
+        backgroundColor: GlobalVariables.backgroundColor,
         iconSize: 28,
         onTap: updatePage,
         items: [
@@ -54,8 +55,8 @@ class _BottomBarState extends State<BottomBar> {
                   border: Border(
                     top: BorderSide(
                       color: _page == 0
-                          ? Colors.blue //GlobalVariables.selectedNavBarColor
-                          : Colors.white, // GlobalVariables.backgroundColor,
+                          ? GlobalVariables.selectedNavBarColor
+                          :  GlobalVariables.backgroundColor,
                       width: bottomBarBorderWidth,
                     ),
                   ),
@@ -72,14 +73,14 @@ class _BottomBarState extends State<BottomBar> {
                   border: Border(
                     top: BorderSide(
                       color: _page == 1
-                          ? Colors.blue //GlobalVariables.selectedNavBarColor
-                          : Colors.white, // GlobalVariables.backgroundColor,
+                          ? GlobalVariables.selectedNavBarColor
+                          :  GlobalVariables.backgroundColor,
                       width: bottomBarBorderWidth,
                     ),
                   ),
                 ),
                 child: const Icon(
-                  Icons.person_outline_outlined,
+                  Icons.person_outline_rounded,
                 ),
               ),
               label: ''),
@@ -90,8 +91,8 @@ class _BottomBarState extends State<BottomBar> {
                   border: Border(
                     top: BorderSide(
                       color: _page == 2
-                          ? Colors.blue //GlobalVariables.selectedNavBarColor
-                          : Colors.white, // GlobalVariables.backgroundColor,
+                          ? GlobalVariables.selectedNavBarColor
+                          :  GlobalVariables.backgroundColor,
                       width: bottomBarBorderWidth,
                     ),
                   ),
