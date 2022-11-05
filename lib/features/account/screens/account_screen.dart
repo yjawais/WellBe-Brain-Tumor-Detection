@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:major_proj_sbj/constants/global_variables.dart';
 import 'package:major_proj_sbj/features/account/widgets/menu_options.dart';
 import 'package:major_proj_sbj/features/account/widgets/profile_details_card.dart';
 
@@ -42,19 +41,12 @@ class _AccountScreenState extends State<AccountScreen> {
               children: [
                 Container(
                   height: 275,
-                  padding: const EdgeInsets.symmetric(vertical: 25,),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 25,
+                  ),
                   child: ProfileDetails(),
                 ),
-                SizedBox(height:350,child: MenuOption()),
-              
-                //  OptionCard(
-                //       buttonHeading: "Logout",
-                //       buttonSubHeading: " ",
-                //       icon: Icons.logout_rounded,
-                //       function: () {
-                //         FirebaseAuth.instance.signOut();
-                //       },
-                //     ),
+                SizedBox(height: 350, child: MenuOption()),
               ],
             ),
           ),

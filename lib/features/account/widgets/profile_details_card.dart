@@ -76,7 +76,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
         } else if (snapshot.hasError) {
           print(snapshot.error);
         }
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }

@@ -8,6 +8,7 @@ import 'package:major_proj_sbj/auth/screens/forgot_password_screen.dart';
 import 'package:major_proj_sbj/auth/screens/profile_input_screen.dart';
 import 'package:major_proj_sbj/auth/widgets/auth_form.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:major_proj_sbj/constants/global_variables.dart';
 
 class AuthScreen extends StatefulWidget {
   static const String routeName = '/auth';
@@ -91,7 +92,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //  backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: GlobalVariables.backgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

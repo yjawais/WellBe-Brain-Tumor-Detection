@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MenuOption extends StatelessWidget {
@@ -28,7 +29,17 @@ class MenuOption extends StatelessWidget {
         itemCount: 5,
         itemBuilder: (context, i) {
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              switch (i) {
+                case 0: return null;
+                case 1: return null;
+                case 2: return null;
+                case 3: return null;
+                case 4: FirebaseAuth.instance.signOut();
+  
+               
+              }
+            },
             child: Container(
               height: 50,
               width: double.infinity,
@@ -46,7 +57,7 @@ class MenuOption extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: 30,
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: Text(
@@ -57,7 +68,7 @@ class MenuOption extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: 30,
                     width: MediaQuery.of(context).size.width * 0.1,
                     child: const Icon(

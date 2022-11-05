@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:major_proj_sbj/auth/widgets/profile_form.dart';
+import 'package:major_proj_sbj/constants/global_variables.dart';
 
 class ProfileInputScreen extends StatefulWidget {
   static const String routeName = '/profile-input';
@@ -64,7 +65,7 @@ class _ProfileInputScreenState extends State<ProfileInputScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        //backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: GlobalVariables.backgroundColor,
         body: SingleChildScrollView(
           child: Column(
             children: [
