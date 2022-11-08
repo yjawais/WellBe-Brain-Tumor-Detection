@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor:  GlobalVariables.backgroundColor, 
+        backgroundColor: GlobalVariables.backgroundColor,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           leading: Container(
@@ -37,7 +37,6 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-             
                 Container(
                   color: Colors.black12,
                   height: 2,
@@ -186,10 +185,10 @@ class HomeScreen extends StatelessWidget {
                               child: GradientButton(
                                   text: "Learn More",
                                   function: () async {
-                                    const url =
-                                        "https://cancer.org/cancer/brain-spinal-cord-tumors-adults/detection-diagnosis-staging.html";
-                                    if (await canLaunch(url)) {
-                                      await launch(url);
+                                    Uri url = Uri.parse(
+                                        'https://cancer.org/cancer/brain-spinal-cord-tumors-adults/detection-diagnosis-staging.html');
+                                    if (await canLaunchUrl(url)) {
+                                      await launchUrl(url,mode: LaunchMode.inAppWebView);
                                     } else {
                                       throw "cannot launch $url";
                                     }

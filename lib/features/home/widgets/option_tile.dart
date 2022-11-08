@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/constants/global_variables.dart';
+import 'package:major_proj_sbj/features/services/screens/ambulance.dart';
+import 'package:major_proj_sbj/features/services/screens/doctors.dart';
+import 'package:major_proj_sbj/features/services/screens/hospitals.dart';
+import 'package:major_proj_sbj/features/services/screens/pharmacy.dart';
 
 class OptionTile extends StatelessWidget {
   const OptionTile({
@@ -17,7 +21,21 @@ class OptionTile extends StatelessWidget {
           itemCount: 4,
           itemBuilder: (context, i) {
             return GestureDetector(
-              onTap: (){},
+              onTap: () {
+                switch (i) {
+                  case 0:
+                    Navigator.of(context).pushNamed(DoctorService.routeName);
+                    break;
+                  case 1:
+                    Navigator.of(context).pushNamed(PharmacyService.routeName);
+                    break;
+                  case 2:
+                    Navigator.of(context).pushNamed(HospitalsService.routeName);
+                    break;
+                  case 3:
+                    Navigator.of(context).pushNamed(AmbulanceService.routeName);
+                }
+              },
               child: Container(
                 height: 90,
                 width: 90,

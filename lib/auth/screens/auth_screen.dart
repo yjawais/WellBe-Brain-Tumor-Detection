@@ -55,12 +55,14 @@ class _AuthScreenState extends State<AuthScreen> {
           'email': email,
         });
       }
-    } on PlatformException catch (error) {
+    }
+    //on PlatformException
+    catch (error) {
       var message = 'An error occured.';
-      if (error.message != null) {
-        message = error.message!;
-      }
-
+      // if (error.message != null) {
+      //   message = error.message!;
+      // }
+      message = error.toString();
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           content: Text(message),
@@ -72,27 +74,29 @@ class _AuthScreenState extends State<AuthScreen> {
       });
     }
   }
- Future<UserCredential> signInWithGoogle() async {
-  // Trigger the authentication flow
-  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-  // Obtain the auth details from the request
-  final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-  // Create a new credential
-  final credential = GoogleAuthProvider.credential(
-    accessToken: googleAuth?.accessToken,
-    idToken: googleAuth?.idToken,
-  );
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
 
-  // Once signed in, return the UserCredential
-  return await FirebaseAuth.instance.signInWithCredential(credential);
-}
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: GlobalVariables.backgroundColor,
+      backgroundColor: GlobalVariables.backgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -144,49 +148,45 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              
-                  Container(
-                    height: 50,
-                    width: 250,
-                    margin: const EdgeInsets.all(2),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                      ),
-
-                      onPressed:  signInWithGoogle,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                              height: 36.0,
-                              width: 36.0,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/Google.png',
-                                  ),
-                                ),
-                              )),
-                          Container(
-                              padding:
-                                  const EdgeInsets.only(left: 2.0, right: 2.0),
-                              child: const Text(
-                                "Google",
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
-                              )),
-                        ],
-                      ),
+              Container(
+                height: 50,
+                width: 250,
+                margin: const EdgeInsets.all(2),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
-                  
+                  ),
+                  onPressed: signInWithGoogle,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                          height: 36.0,
+                          width: 36.0,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                'assets/images/Google.png',
+                              ),
+                            ),
+                          )),
+                      Container(
+                          padding: const EdgeInsets.only(left: 2.0, right: 2.0),
+                          child: const Text(
+                            "Google",
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
+                          )),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

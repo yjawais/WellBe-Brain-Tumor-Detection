@@ -1,10 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/auth/screens/auth_screen.dart';
 import 'package:major_proj_sbj/auth/screens/profile_input_screen.dart';
 import 'package:major_proj_sbj/common/bottom_bar.dart';
 import 'package:major_proj_sbj/features/home/screens/brain_test_screen.dart';
 import 'package:major_proj_sbj/features/home/screens/home_screen.dart';
+import 'package:major_proj_sbj/features/services/screens/ambulance.dart';
+import 'package:major_proj_sbj/features/services/screens/doctors.dart';
+import 'package:major_proj_sbj/features/services/screens/hospitals.dart';
+import 'package:major_proj_sbj/features/services/screens/pharmacy.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -27,6 +30,22 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     case BrainTestScreen.routeName:
       return MaterialPageRoute(
         builder: (_) => const BrainTestScreen(),
+      );
+    case DoctorService.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const DoctorService(),
+      );
+    case PharmacyService.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const PharmacyService(),
+      );
+    case AmbulanceService.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const AmbulanceService(),
+      );
+    case HospitalsService.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const HospitalsService(),
       );
     // case AddProductScreen.routeName:
     //   return MaterialPageRoute(

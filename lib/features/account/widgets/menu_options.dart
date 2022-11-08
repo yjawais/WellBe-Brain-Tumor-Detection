@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/common/gradient_button.dart';
 import 'package:major_proj_sbj/constants/global_variables.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MenuOption extends StatelessWidget {
   const MenuOption({Key? key}) : super(key: key);
@@ -21,6 +22,16 @@ class MenuOption extends StatelessWidget {
     'FAQ',
     'Log Out',
   ];
+
+  void openFaq() async {
+    Uri url = Uri.parse(
+        'https://miamineurosciencecenter.com/en/conditions/brain-tumors/frequently-asked-questions/');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.inAppWebView);
+    } else {
+      throw "cannot launch $url";
+    }
+  }
 
   void popupDialog(BuildContext context) {
     showDialog(
@@ -63,6 +74,7 @@ class MenuOption extends StatelessWidget {
                         text: "Log Out",
                         function: () {
                           FirebaseAuth.instance.signOut();
+                          Navigator.of(context, rootNavigator: true).pop();
                         },
                         buttonWidth: 200,
                       ),
@@ -113,7 +125,8 @@ class MenuOption extends StatelessWidget {
                 case 2:
                   return null;
                 case 3:
-                  return null;
+                  openFaq();
+                  break;
                 case 4:
                   popupDialog(context);
               }

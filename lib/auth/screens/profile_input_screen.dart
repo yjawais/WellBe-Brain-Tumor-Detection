@@ -42,11 +42,14 @@ class _ProfileInputScreenState extends State<ProfileInputScreen> {
           // pushNamedAndRemoveUntil(
           //     '/actual-home', (Route<dynamic> route) => false)
           );
-    } on PlatformException catch (error) {
+    } 
+    //on PlatformException 
+    catch (error) {
       var message = 'An error occured.';
-      if (error.message != null) {
-        message = error.message!;
-      }
+      // if (error.message != null) {
+      //   message = error.message!;
+      // }
+      message = error.toString();
 
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(

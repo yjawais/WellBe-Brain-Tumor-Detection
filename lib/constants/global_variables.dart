@@ -42,9 +42,6 @@ class GlobalVariables {
       'title': 'Ambulance',
       'image': 'assets/images/Ambulance.png',
     },
-    {
-      'title': 'Fashion',
-      'image': 'assets/images/fashion.jpeg',
-    },
+   
   ];
 }
