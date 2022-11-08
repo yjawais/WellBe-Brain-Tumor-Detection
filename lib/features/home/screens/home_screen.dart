@@ -3,6 +3,7 @@ import 'package:major_proj_sbj/common/gradient_button.dart';
 import 'package:major_proj_sbj/constants/global_variables.dart';
 import 'package:major_proj_sbj/features/home/screens/brain_test_screen.dart';
 import 'package:major_proj_sbj/features/home/widgets/option_tile.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName = '/home';
@@ -185,13 +186,13 @@ class HomeScreen extends StatelessWidget {
                               child: GradientButton(
                                   text: "Learn More",
                                   function: () async {
-                                    // const url =
-                                    //     "https://cancer.org/cancer/brain-spinal-cord-tumors-adults/detection-diagnosis-staging.html";
-                                    // if (await canLaunch(url)) {
-                                    //   await launch(url);
-                                    // } else {
-                                    //   throw "cannot launch $url";
-                                    // }
+                                    const url =
+                                        "https://cancer.org/cancer/brain-spinal-cord-tumors-adults/detection-diagnosis-staging.html";
+                                    if (await canLaunch(url)) {
+                                      await launch(url);
+                                    } else {
+                                      throw "cannot launch $url";
+                                    }
                                   },
                                   buttonWidth: 130),
                             ),
