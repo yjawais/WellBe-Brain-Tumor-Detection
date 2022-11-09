@@ -42,7 +42,7 @@ class HospitalData {
       'hospital_name':
           'American Oncology Institute - Unit of Cancer Treatment Services Hyderabad\nPvt Ltd',
       'hosp_address':
-          'C-1\/1, MIDC Hingna, Opp. MIA Center for Sports & Recreation',
+          'C-1/1, MIDC Hingna, Opp. MIA Center for Sports & Recreation',
       'city': 'NAGPUR',
       'state': 'MAHARASHTRA',
       'phone': '0712 672 1111',
@@ -104,7 +104,7 @@ class HospitalData {
     },
     {
       'hospital_name': 'Evista Eye Care Centre',
-      'hosp_address': '14\/1, Opposite Dhantoli Park, NIL',
+      'hosp_address': '14/1, Opposite Dhantoli Park, NIL',
       'city': 'NAGPUR',
       'state': 'MAHARASHTRA',
       'phone': '0712 245 9855',

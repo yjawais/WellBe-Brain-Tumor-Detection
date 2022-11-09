@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/common/gradient_button.dart';
 import 'package:major_proj_sbj/constants/global_variables.dart';
+import 'package:major_proj_sbj/features/account/screens/update_profile_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MenuOption extends StatelessWidget {
@@ -119,7 +120,9 @@ class MenuOption extends StatelessWidget {
             onTap: () {
               switch (i) {
                 case 0:
-                  return null;
+                  Navigator.of(context)
+                      .pushNamed(UpdateProfileScreen.routeName);
+                  break;
                 case 1:
                   return null;
                 case 2:

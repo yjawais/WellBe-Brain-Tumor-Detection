@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/auth/screens/auth_screen.dart';
 import 'package:major_proj_sbj/auth/screens/profile_input_screen.dart';
 import 'package:major_proj_sbj/common/bottom_bar.dart';
+import 'package:major_proj_sbj/features/account/screens/update_profile_screen.dart';
 import 'package:major_proj_sbj/features/home/screens/brain_test_screen.dart';
 import 'package:major_proj_sbj/features/home/screens/home_screen.dart';
 import 'package:major_proj_sbj/features/services/screens/ambulance.dart';
@@ -47,10 +48,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         builder: (_) => const HospitalsService(),
       );
-    // case AddProductScreen.routeName:
-    //   return MaterialPageRoute(
-    //     builder: (_) => const AddProductScreen(),
-    //   );
+    case UpdateProfileScreen.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const UpdateProfileScreen(),
+      );
     // case CategoryDealsScreen.routeName:
     //   var category = routeSettings.arguments as String;
     //   return MaterialPageRoute(

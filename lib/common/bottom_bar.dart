@@ -62,7 +62,7 @@ class _BottomBarState extends State<BottomBar> {
                   Icons.home_rounded,
                 ),
               ),
-              label: ''),
+              label: 'Home'),
           BottomNavigationBarItem(
               icon: Container(
                 width: bottomBarWidth,
@@ -80,7 +80,7 @@ class _BottomBarState extends State<BottomBar> {
                   Icons.domain_rounded,
                 ),
               ),
-              label: ''),
+              label: 'Hospitals'),
           BottomNavigationBarItem(
               icon: Container(
                 width: bottomBarWidth,
@@ -98,7 +98,7 @@ class _BottomBarState extends State<BottomBar> {
                  Icons.person_outline_rounded,
                 ),
               ),
-              label: ''),
+              label: 'Account'),
         ],
       ),
     );

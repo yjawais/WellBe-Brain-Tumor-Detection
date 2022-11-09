@@ -30,7 +30,7 @@ class HospitalsService extends StatelessWidget {
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(5),
-          child: DetailCard(),
+          child:const DetailCard(),
         ),
       ),
     );

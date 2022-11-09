@@ -3,22 +3,21 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:major_proj_sbj/auth/widgets/profile_form.dart';
 import 'package:major_proj_sbj/constants/global_variables.dart';
+import 'package:major_proj_sbj/features/account/widgets/update_profile_form.dart';
 
-class ProfileInputScreen extends StatefulWidget {
-  static const String routeName = '/profile-input';
-  const ProfileInputScreen({Key? key}) : super(key: key);
+class UpdateProfileScreen extends StatefulWidget {
+  static const String routeName = '/update-profile';
+  const UpdateProfileScreen({Key? key}) : super(key: key);
 
   @override
-  _ProfileInputScreenState createState() => _ProfileInputScreenState();
+  _UpdateProfileScreenState createState() => _UpdateProfileScreenState();
 }
 
-class _ProfileInputScreenState extends State<ProfileInputScreen> {
+class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   String uid = FirebaseAuth.instance.currentUser!.uid.toString();
 
   var _isLoading = false;
-  static var isProfileComplete = false;
   void _submitProfileForm(
     String username,
     String phone,
@@ -29,20 +28,21 @@ class _ProfileInputScreenState extends State<ProfileInputScreen> {
       setState(() {
         _isLoading = true;
       });
-      setState(() {
-        isProfileComplete = true;
-      });
-      await FirebaseFirestore.instance.collection('users').doc(uid).set({
+
+      await FirebaseFirestore.instance.collection('users').doc(uid).update({
         'username': username,
         'phone': phone,
         'userType': userType,
-        'isProfileComplete': isProfileComplete,
-      }).then((_) => Navigator.of(ctx).pop()
-          // pushNamedAndRemoveUntil(
-          //     '/actual-home', (Route<dynamic> route) => false)
-          );
-    } 
-    //on PlatformException 
+      }).then((_) => Navigator.of(ctx).pop());
+
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
+        content:const Text('Data updated'),
+        // ignore: use_build_context_synchronously
+        backgroundColor: Theme.of(ctx).hintColor,
+      ));
+    }
+    //on PlatformException
     catch (error) {
       var message = 'An error occured.';
       // if (error.message != null) {
@@ -56,10 +56,6 @@ class _ProfileInputScreenState extends State<ProfileInputScreen> {
           backgroundColor: Theme.of(context).errorColor,
         ),
       );
-      setState(() {
-        _isLoading = false;
-        isProfileComplete = false;
-      });
     }
   }
 
@@ -67,23 +63,27 @@ class _ProfileInputScreenState extends State<ProfileInputScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(backgroundColor: Colors.transparent),
         backgroundColor: GlobalVariables.backgroundColor,
         body: SingleChildScrollView(
           child: Column(
             children: [
-             const SizedBox(height: 100,),
+              const SizedBox(
+                height: 100,
+              ),
               const Text(
-                "Complete Profile",
+                "Update Profile",
                 textAlign: TextAlign.start,
                 style: TextStyle(
-                  
                   color: Colors.black45,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-               const SizedBox(height: 50,),
-              ProfileForm(_submitProfileForm, _isLoading),
+              const SizedBox(
+                height: 50,
+              ),
+              UpdateProfileForm(_submitProfileForm, _isLoading),
             ],
           ),
         ),
