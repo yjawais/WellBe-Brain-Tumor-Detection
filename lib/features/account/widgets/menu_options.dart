@@ -65,7 +65,7 @@ class MenuOption extends StatelessWidget {
                         'Log Out?',
                         style: TextStyle(
                           fontSize: 24,
-                          color: Colors.black87,
+                          color: Colors.black54,
                         ),
                       ),
                       const SizedBox(
@@ -159,6 +159,7 @@ class MenuOption extends StatelessWidget {
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
+                        color: Colors.black54,
                       ),
                     ),
                   ),

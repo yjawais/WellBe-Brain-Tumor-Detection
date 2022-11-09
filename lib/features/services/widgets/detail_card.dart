@@ -49,15 +49,29 @@ class DetailCard extends StatelessWidget {
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
+                          color: Colors.black54,
                         ),
                       ),
                       Text(
                         data[i]['hosp_address']!,
                         softWrap: true,
+                        style: const TextStyle(
+                          color: Colors.black45,
+                        ),
                       ),
-                      Text("${data[i]['city']!} ${data[i]['state']!}"),
+                      Text(
+                        "${data[i]['city']!} ${data[i]['state']!}",
+                        style: const TextStyle(
+                          color: Colors.black45,
+                        ),
+                      ),
                       //Text(data[i]['state']!),
-                      Text(data[i]['phone']!),
+                      Text(
+                        data[i]['phone']!,
+                        style: const TextStyle(
+                          color: Colors.black45,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -65,7 +79,7 @@ class DetailCard extends StatelessWidget {
                   width: 10,
                 ),
                 GestureDetector(
-                  onTap:  () => launch('tel:${data[i]['phone']!.toString()}'),
+                  onTap: () => launch('tel:${data[i]['phone']!.toString()}'),
                   child: Container(
                     height: 25,
                     width: 25,
@@ -73,7 +87,7 @@ class DetailCard extends StatelessWidget {
                       // border: Border.all(
                       //   color: GlobalVariables.primaryColor
                       // ),
-                      image:  DecorationImage(
+                      image: DecorationImage(
                         image: AssetImage("assets/images/call.png"),
                         fit: BoxFit.contain,
                       ),
