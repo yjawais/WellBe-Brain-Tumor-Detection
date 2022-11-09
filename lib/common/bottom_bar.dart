@@ -2,12 +2,11 @@
 
 // ignore_for_file: library_private_types_in_public_api
 
-//import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/constants/global_variables.dart';
 import 'package:major_proj_sbj/features/account/screens/account_screen.dart';
 import 'package:major_proj_sbj/features/home/screens/home_screen.dart';
-//import 'package:provider/provider.dart';
+import 'package:major_proj_sbj/features/services/screens/hospitals.dart';
 
 class BottomBar extends StatefulWidget {
   static const String routeName = '/actual-home';
@@ -30,20 +29,18 @@ class _BottomBarState extends State<BottomBar> {
 
   List<Widget> pages = [
     const HomeScreen(),
+    const HospitalsService(),
     const AccountScreen(),
-    const Center(child: Text("history")),
   ];
 
   @override
   Widget build(BuildContext context) {
-    //final userCartLen = context.watch<UserProvider>().user.cart.length;
     return Scaffold(
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,
         selectedItemColor: GlobalVariables.selectedNavBarColor,
-        unselectedItemColor:
-           GlobalVariables.unselectedNavBarColor,
+        unselectedItemColor: GlobalVariables.unselectedNavBarColor,
         backgroundColor: GlobalVariables.backgroundColor,
         iconSize: 28,
         onTap: updatePage,
@@ -56,13 +53,13 @@ class _BottomBarState extends State<BottomBar> {
                     top: BorderSide(
                       color: _page == 0
                           ? GlobalVariables.selectedNavBarColor
-                          :  GlobalVariables.backgroundColor,
+                          : GlobalVariables.backgroundColor,
                       width: bottomBarBorderWidth,
                     ),
                   ),
                 ),
                 child: const Icon(
-                  Icons.home_outlined,
+                  Icons.home_rounded,
                 ),
               ),
               label: ''),
@@ -74,13 +71,13 @@ class _BottomBarState extends State<BottomBar> {
                     top: BorderSide(
                       color: _page == 1
                           ? GlobalVariables.selectedNavBarColor
-                          :  GlobalVariables.backgroundColor,
+                          : GlobalVariables.backgroundColor,
                       width: bottomBarBorderWidth,
                     ),
                   ),
                 ),
                 child: const Icon(
-                  Icons.person_outline_rounded,
+                  Icons.domain_rounded,
                 ),
               ),
               label: ''),
@@ -92,13 +89,13 @@ class _BottomBarState extends State<BottomBar> {
                     top: BorderSide(
                       color: _page == 2
                           ? GlobalVariables.selectedNavBarColor
-                          :  GlobalVariables.backgroundColor,
+                          : GlobalVariables.backgroundColor,
                       width: bottomBarBorderWidth,
                     ),
                   ),
                 ),
                 child: const Icon(
-                  Icons.analytics_outlined,
+                 Icons.person_outline_rounded,
                 ),
               ),
               label: ''),

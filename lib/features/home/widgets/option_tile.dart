@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/constants/global_variables.dart';
 import 'package:major_proj_sbj/features/services/screens/ambulance.dart';
 import 'package:major_proj_sbj/features/services/screens/doctors.dart';
-import 'package:major_proj_sbj/features/services/screens/hospitals.dart';
+// import 'package:major_proj_sbj/features/services/screens/hospitals.dart';
 import 'package:major_proj_sbj/features/services/screens/pharmacy.dart';
 
 class OptionTile extends StatelessWidget {
@@ -17,8 +17,8 @@ class OptionTile extends StatelessWidget {
       width: double.infinity,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemExtent: 82,
-          itemCount: 4,
+          itemExtent: 110,
+          itemCount: 3,
           itemBuilder: (context, i) {
             return GestureDetector(
               onTap: () {
@@ -29,10 +29,10 @@ class OptionTile extends StatelessWidget {
                   case 1:
                     Navigator.of(context).pushNamed(PharmacyService.routeName);
                     break;
+                  // case 2:
+                  //   Navigator.of(context).pushNamed(HospitalsService.routeName);
+                  //   break;
                   case 2:
-                    Navigator.of(context).pushNamed(HospitalsService.routeName);
-                    break;
-                  case 3:
                     Navigator.of(context).pushNamed(AmbulanceService.routeName);
                 }
               },

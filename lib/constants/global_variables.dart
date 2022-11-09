@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-//String uri='https://awais-amazon-clone.herokuapp.com';
 
 class GlobalVariables {
   // COLORS
@@ -34,13 +33,14 @@ class GlobalVariables {
       'title': 'Pharmacy',
       'image': 'assets/images/Pharmacy.png',
     },
-    {
-      'title': 'Hospital',
-      'image': 'assets/images/Hospital.png',
-    },
+   
     {
       'title': 'Ambulance',
       'image': 'assets/images/Ambulance.png',
+    },
+     {
+      'title': 'Hospital',
+      'image': 'assets/images/Hospital.png',
     },
    
   ];

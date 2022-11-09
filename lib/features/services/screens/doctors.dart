@@ -1,34 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:major_proj_sbj/features/services/widgets/detail_card.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:major_proj_sbj/constants/global_variables.dart';
+
 import 'package:webview_flutter/webview_flutter.dart';
-class DoctorService extends StatelessWidget {
+
+class DoctorService extends StatefulWidget {
   static const String routeName = "/Doctor-service";
   const DoctorService({Key? key}) : super(key: key);
 
-  // void getDoctors() async {
-  //   Uri url = Uri.parse(
-  //       'www.justdail.com/Nagpur/Doctors-For-Brain-Tumor');
-  //   if (await canLaunchUrl(url)) {
-  //     await launchUrl(url, mode: LaunchMode.inAppWebView);
-  //   } else {
-  //     throw "cannot launch $url";
-  //   }
-  // }
+  @override
+  State<DoctorService> createState() => _DoctorServiceState();
+}
 
+class _DoctorServiceState extends State<DoctorService> {
+  bool isLoading = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: GlobalVariables.backgroundColor,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: const Text("Doctors"),
       ),
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.all(5),
-          child: WebView(
-            initialUrl:'www.justdail.com/Nagpur/Doctors-For-Brain-Tumor',
-          )
-        ),
+            color: GlobalVariables.backgroundColor,
+            padding: const EdgeInsets.all(5),
+            child: Stack(
+              children: [
+                WebView(
+                  onPageFinished: (finish) {
+                    setState(() {
+                      isLoading = false;
+                    });
+                  },
+                  //  onProgress: (_){ CircularProgressIndicator() ;},
+                  javascriptMode: JavascriptMode.unrestricted,
+                  initialUrl:
+                      'https://www.practo.com/nagpur/surgeons-for-brain-tumor-surgery',
+                ),
+                isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : Stack(),
+              ],
+            ),),
       ),
     );
   }
