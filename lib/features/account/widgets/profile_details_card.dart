@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:major_proj_sbj/constants/utils.dart';
 import 'package:major_proj_sbj/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -74,7 +75,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
             ],
           );
         } else if (snapshot.hasError) {
-          print(snapshot.error);
+          showSnackBar(context,snapshot.error.toString());
         }
         return const Center(child: CircularProgressIndicator());
       },
