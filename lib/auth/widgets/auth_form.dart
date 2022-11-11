@@ -105,7 +105,7 @@ class _AuthFormState extends State<AuthForm> {
                       },
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        labelText: 'Email',
+                        hintText: 'Email',
                         border: InputBorder.none,
                         prefixIcon: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -170,7 +170,7 @@ class _AuthFormState extends State<AuthForm> {
                         return null;
                       },
                       decoration: InputDecoration(
-                        labelText: 'Password',
+                        hintText: 'Password',
                         border: InputBorder.none,
                         prefixIcon: Padding(
                           padding: const EdgeInsets.all(10.0),

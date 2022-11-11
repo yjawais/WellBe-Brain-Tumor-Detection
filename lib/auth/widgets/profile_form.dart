@@ -83,7 +83,7 @@ class _ProfileFormState extends State<ProfileForm> {
                         },
                         decoration:  InputDecoration(
                           border: InputBorder.none,
-                          labelText: 'Name',
+                          hintText: 'Name',
                           prefixIcon: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Image.asset(
@@ -128,7 +128,7 @@ class _ProfileFormState extends State<ProfileForm> {
                           return null;
                         },
                         decoration: InputDecoration(
-                          labelText: 'Phone',
+                          hintText: 'Phone',
                           border: InputBorder.none,
                           prefixIcon: Padding(
                           padding: const EdgeInsets.all(10.0),

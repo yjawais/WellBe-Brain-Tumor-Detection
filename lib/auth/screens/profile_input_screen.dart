@@ -41,6 +41,14 @@ class _ProfileInputScreenState extends State<ProfileInputScreen> {
           // pushNamedAndRemoveUntil(
           //     '/actual-home', (Route<dynamic> route) => false)
           );
+
+       // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
+        content:const Text('Profile updated'),
+        // ignore: use_build_context_synchronously
+        backgroundColor: Theme.of(ctx).hintColor,
+      ));
+     
     } 
     //on PlatformException 
     catch (error) {
