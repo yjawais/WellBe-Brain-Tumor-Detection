@@ -3,36 +3,51 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
 import 'package:major_proj_sbj/common/gradient_button.dart';
 
 class MriImagePicker extends StatefulWidget {
-  const MriImagePicker({Key? key}) : super(key: key);
+  const MriImagePicker({
+    Key? key,
+  }) : super(key: key);
 
-//  final void Function(XFile? pickedImage) imagePickedFn;
-  // MriImagePicker(this.imagePickedFn);
   @override
   _MriImagePickerState createState() => _MriImagePickerState();
 }
 
 class _MriImagePickerState extends State<MriImagePicker> {
-   File _pickedImage=File('assets/images/Logo.png');
+  final ImagePicker _picker = ImagePicker();
+  bool isImagePicked = false;
+  XFile? _pickedImage = XFile('assets/images/Vector.png');
   void _pickImage() async {
-    final pickedImageFile = (await ImagePicker().pickImage(
+    final XFile? pickedImageFile = await _picker.pickImage(
       source: ImageSource.gallery,
-      imageQuality: 50,
-      maxWidth: 150,
-    ));
+      imageQuality: 100,
+      maxWidth: 250,
+    );
     setState(() {
-      _pickedImage = File(pickedImageFile!.path);
+      if (pickedImageFile != null) {
+        isImagePicked = true;
+        _pickedImage = pickedImageFile;
+      } else {
+        isImagePicked = false;
+      }
     });
-    //  widget.imagePickedFn(pickedImageFile);
   }
 
-  @override
+  // @override
   // void initState() {
-  //   _pickedImage = File('assets/images/Vector.png');
+  //   _pickedImage = XFile('assets/images/Logo.png');
   //   super.initState();
   // }
+
+//   File images = File('assets/images/Logo.png');
+// void selectImages() async {
+//     var res = await pickImages();
+//     setState(() {
+//       images = res;
+//     });
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -47,23 +62,36 @@ class _MriImagePickerState extends State<MriImagePicker> {
                 height: 20,
               ),
               Container(
-                padding: const EdgeInsets.all(8),
-                height: MediaQuery.of(context).size.height * 0.35,
-                width: MediaQuery.of(context).size.width * 0.8,
+                padding: const EdgeInsets.all(10.0),
+                height: MediaQuery.of(context).size.height * 0.55,
+                width: MediaQuery.of(context).size.width * 0.85,
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 2,
                     color: Colors.black12,
                   ),
                   borderRadius: BorderRadius.circular(5),
-                  image: DecorationImage(
-                    fit: BoxFit.fitHeight,
-                    image: 
-                         FileImage(_pickedImage)
-                        // : const AssetImage('assets/images/Vector.png')
-                        //     as ImageProvider,
-                  ),
-                ), //change to network image later
+                ),
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      width: 2,
+                      color: Colors.black12,
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+                    image: DecorationImage(
+                      fit: BoxFit.contain,
+                      image: !isImagePicked
+                          ? const AssetImage('assets/images/Logo.png')
+                              as ImageProvider
+                          : FileImage(File(_pickedImage!.path)),
+                    ),
+                  ), //change to network image later
+                ),
               ),
               const SizedBox(
                 height: 50,
@@ -77,7 +105,7 @@ class _MriImagePickerState extends State<MriImagePicker> {
                 height: 25,
               ),
               GradientButton(
-                function: (){},
+                function: () {},
                 text: 'Upload',
                 buttonWidth: 200,
               ),

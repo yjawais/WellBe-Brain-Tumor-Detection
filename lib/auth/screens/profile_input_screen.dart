@@ -15,7 +15,7 @@ class ProfileInputScreen extends StatefulWidget {
 }
 
 class _ProfileInputScreenState extends State<ProfileInputScreen> {
-  String uid = FirebaseAuth.instance.currentUser!.uid.toString();
+  String? uid = FirebaseAuth.instance.currentUser?.uid.toString();
 
   var _isLoading = false;
   static var isProfileComplete = false;
