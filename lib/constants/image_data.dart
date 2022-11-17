@@ -54,53 +54,53 @@ class ImageData {
       {
       'image_name':'assets/yes/Y1.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y1.jpg',
+      'image_result':'assets/yes/Y1-tu.jpg',
     },
     {
       'image_name':'assets/yes/Y2.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y2.jpg',
+      'image_result':'assets/yes/Y2-tu.jpg',
     },
     {
       'image_name':'assets/yes/Y3.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y3.jpg',
+      'image_result':'assets/yes/Y3-tu.jpg',
     },
     {
       'image_name':'assets/yes/Y4.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y4.jpg',
+      'image_result':'assets/yes/Y4-tu.jpg',
     },
     {
       'image_name':'assets/yes/Y5.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y5.jpg',
+      'image_result':'assets/yes/Y5-tu.jpg',
     },
     {
       'image_name':'assets/yes/Y6.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y6.jpg',
+      'image_result':'assets/yes/Y6-tu.jpg',
     },
     {
       'image_name':'assets/yes/Y7.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y7.jpg',
+      'image_result':'assets/yes/Y7-tu.jpg',
     },
     {
       'image_name':'assets/yes/Y8.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y8.jpg',
+      'image_result':'assets/yes/Y8-tu.jpg',
     },
 
     {
       'image_name':'assets/yes/Y9.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y1.jpg',
+      'image_result':'assets/yes/Y9-tu.jpg',
     },
     {
-      'image_name':'assets/yes/Y9.jpg',
+      'image_name':'assets/yes/Y10.jpg',
       'result':'Brain Tumor detected in the marked region.',
-      'image_result':'assets/yes/Y9.jpg',
+      'image_result':'assets/yes/Y10-tu.jpg',
     },
 
   ];
