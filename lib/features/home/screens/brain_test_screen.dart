@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:major_proj_sbj/constants/global_variables.dart';
 import 'package:major_proj_sbj/features/home/widgets/image_picker.dart';
+import 'package:major_proj_sbj/features/home/widgets/picker_image_app.dart';
 
 class BrainTestScreen extends StatelessWidget {
   static const routeName = "/brain-test";
@@ -24,7 +25,7 @@ class BrainTestScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 1.5,
       ),
-      body: const MriImagePicker(),
+      body: const MriImagePickerFromApp (),
     );
   }
 }
