@@ -59,6 +59,7 @@ class HomeScreen extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.all(5),
                   child: Card(
+                    color: Colors.white,
                     elevation: 1.5,
                     child: Stack(
                       children: [
@@ -144,6 +145,7 @@ class HomeScreen extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.all(10),
                   child: Card(
+                    color: Colors.white,
                     elevation: 1.5,
                     child: Stack(
                       children: [
@@ -188,7 +190,8 @@ class HomeScreen extends StatelessWidget {
                                     Uri url = Uri.parse(
                                         'https://cancer.org/cancer/brain-spinal-cord-tumors-adults/detection-diagnosis-staging.html');
                                     if (await canLaunchUrl(url)) {
-                                      await launchUrl(url,mode: LaunchMode.inAppWebView);
+                                      await launchUrl(url,
+                                          mode: LaunchMode.inAppWebView);
                                     } else {
                                       throw "cannot launch $url";
                                     }

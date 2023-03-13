@@ -15,6 +15,7 @@ class DetailCard extends StatelessWidget {
       itemCount: data.length,
       itemBuilder: ((context, i) {
         return Card(
+          color: Colors.white,
           child: Container(
             height: 180,
             width: double.infinity,

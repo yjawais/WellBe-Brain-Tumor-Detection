@@ -28,6 +28,7 @@ class _MriImagePickerFromAppState extends State<MriImagePickerFromApp> {
               height: 550,
               width: 400,
               child: SimpleDialog(
+                backgroundColor: Colors.white,
                 children: [
                   SizedBox(
                     height: 550,
@@ -78,7 +79,9 @@ class _MriImagePickerFromAppState extends State<MriImagePickerFromApp> {
           return SizedBox(
             height: 400,
             width: 350,
-            child: SimpleDialog(children: [
+            child: SimpleDialog(
+               backgroundColor: Colors.white,
+              children: [
               SizedBox(
                 height: 450,
                 width: 350,

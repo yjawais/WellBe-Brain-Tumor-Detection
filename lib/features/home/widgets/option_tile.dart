@@ -41,6 +41,7 @@ class OptionTile extends StatelessWidget {
                 width: 90,
                 padding: const EdgeInsets.all(1),
                 child: Card(
+                    color: Colors.white,
                   child: Column(
                     children: [
                       Container(

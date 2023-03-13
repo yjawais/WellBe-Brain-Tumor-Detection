@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, library_private_types_in_public_api
 import 'dart:io';
-
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -16,6 +18,54 @@ class MriImagePicker extends StatefulWidget {
 }
 
 class _MriImagePickerState extends State<MriImagePicker> {
+
+ final _formKey = GlobalKey<FormState>();
+ 
+  File? file;
+  var url = Uri.parse('https://braintest.onrender.com/predict');
+
+  int show = -1;
+  @override
+  // void initState() {
+  //   file = 35;
+    
+  // }
+
+  Future<void> getPredictions(
+    int? age,
+   
+  ) async {
+
+    Map<String, String> headers = {"Content-type": "text/html"};
+    Map<String, String> body = {
+      "age": "$age",
+      
+    };
+    http.Response response = await http.post(
+      url,
+      //headers: headers,
+      body: body,
+    );
+
+    // print('Response status: ${response.statusCode}'); //uncomment while testing
+    // print('Response body: ${response.body.toString()}');
+
+    //print(response.body.toString());
+  //  print(json.decode(response.body)['person is']);
+
+    setState(() {
+      show = int.parse(json.decode(response.body)['person is']);
+    });
+  }
+
+
+
+
+
+
+
+
+
   final ImagePicker _picker = ImagePicker();
   bool isImagePicked = false;
   XFile? _pickedImage = XFile('assets/images/Vector.png');

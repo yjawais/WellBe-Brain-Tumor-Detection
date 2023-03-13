@@ -77,6 +77,7 @@ class _AuthFormState extends State<AuthForm> {
                 ),
                 Material(
                   elevation: 2,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
                     height: 60,
@@ -92,7 +93,7 @@ class _AuthFormState extends State<AuthForm> {
                         width: 2,
                       ),
                     ),
-                    margin: const EdgeInsets.all(1),
+                    margin: const EdgeInsets.all(0),
                     child: TextFormField(
                       key: const ValueKey('email'),
                       autocorrect: false,
@@ -146,10 +147,11 @@ class _AuthFormState extends State<AuthForm> {
                 Material(
                   elevation: 2,
                   borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
                   child: Container(
                     height: 60,
                     width: 325,
-                    margin: const EdgeInsets.all(1),
+                    margin: const EdgeInsets.all(0),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10,
                       vertical: 5,

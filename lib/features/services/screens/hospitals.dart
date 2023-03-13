@@ -8,30 +8,31 @@ class HospitalsService extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: GlobalVariables.backgroundColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: Container(
-          padding: const EdgeInsets.all(10),
-          child: Image.asset("assets/images/Vector.png"),
-        ),
-        title: const Text(
-          "Hospitals",
-          softWrap: true,
-          style: TextStyle(
-            fontSize: 26,
-            color: Colors.black54,
-            fontWeight: FontWeight.bold,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: GlobalVariables.backgroundColor,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          leading: Container(
+            padding: const EdgeInsets.all(10),
+            child: Image.asset("assets/images/Vector.png"),
           ),
-          textAlign: TextAlign.left,
+          title: const Text(
+            "Hospitals",
+            softWrap: true,
+            style: TextStyle(
+              fontSize: 26,
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.left,
+          ),
         ),
-      ),
-      body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.all(5),
-          child:const DetailCard(),
-        ),
+        body:  Container(
+            padding: const EdgeInsets.all(5),
+            child:const DetailCard(),
+          ),
+        
       ),
     );
   }

@@ -11,21 +11,23 @@ class BrainTestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    
-    return Scaffold(
-      backgroundColor: GlobalVariables.backgroundColor,
-      appBar: AppBar(
-        title: const Text(
-          "Run Test",
-          style: TextStyle(
-            fontSize: 26,
-            color: Colors.black54,
-            fontWeight: FontWeight.bold,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: GlobalVariables.backgroundColor,
+        appBar: AppBar(
+          title: const Text(
+            "Run Test",
+            style: TextStyle(
+              fontSize: 26,
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+            ),
           ),
+          backgroundColor: Colors.transparent,
+          elevation: 1.5,
         ),
-        backgroundColor: Colors.transparent,
-        elevation: 1.5,
+        body: const MriImagePickerFromApp (),
       ),
-      body: const MriImagePickerFromApp (),
     );
   }
 }

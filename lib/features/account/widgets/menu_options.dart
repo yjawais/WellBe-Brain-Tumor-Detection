@@ -39,6 +39,7 @@ class MenuOption extends StatelessWidget {
         context: context,
         builder: (context) {
           return SimpleDialog(
+            backgroundColor: Colors.white,
             // title: const Text(" "),
             children: [
               SizedBox(
@@ -88,7 +89,7 @@ class MenuOption extends StatelessWidget {
                         child: OutlinedButton(
                           style: OutlinedButton.styleFrom(
                               shape: const StadiumBorder(),
-                              primary: GlobalVariables.primaryColor,
+                             backgroundColor: GlobalVariables.primaryColor,
                               padding: const EdgeInsets.all(0.0),
                               side: const BorderSide(
                                 color: GlobalVariables.primaryColor,

@@ -53,7 +53,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           content: Text(message),
-          backgroundColor: Theme.of(context).errorColor,
+          backgroundColor: Theme.of(context).colorScheme.error,
         ),
       );
     }

@@ -65,7 +65,7 @@ class _AuthScreenState extends State<AuthScreen> {
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           content: Text(message),
-          backgroundColor: Theme.of(context).errorColor,
+          backgroundColor: Theme.of(context).colorScheme.error,
         ),
       );
       setState(() {
@@ -94,10 +94,10 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: GlobalVariables.backgroundColor,
-      body: SafeArea(
-        child: SingleChildScrollView(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: GlobalVariables.backgroundColor,
+        body: SingleChildScrollView(
           child: Column(
             //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -153,7 +153,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 margin: const EdgeInsets.all(2),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
